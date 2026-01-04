@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>vrm viewer</title>
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Debug controls -->
+    <div id="vrm-controls">
+        <button class="ui-button active" data-action="toggle-helpers">Toggle Helpers</button>
+        <button class="ui-button active" data-action="toggle-lookat-eyegaze">Toggle Eye Gaze</button>
+        <button class="ui-button active" data-action="toggle-lookat-saccades">Toggle Saccades</button>
+        <button class="ui-button active" data-action="toggle-lookat-headmovement">Toggle Head Movement</button>
+        <button class="ui-button active" data-action="toggle-blinking">Toggle Blinking</button>
+
+
+        <div class="animation-panel">
+            <select id="anim-selector" class="ui-input">
+                <!-- Add animations here as options with the value as the path to the animation -->
+                <option value="/animations/test.vrma">Test</option>
+            </select>
+
+            <div class="input-group">
+                <label>Fade duration:</label>
+                <input type="number" id="anim-fade-duration" value="0.5" step="0.1" min="0" class="ui-input">
+            </div>
+
+            <div class="input-group">
+                <label>Loop:</label>
+                <select id="anim-loop" class="ui-input">
+                    <option value="once">Once</option>
+                    <option value="repeat">Repeat</option>
+                    <option value="pingpong">Ping-Pong</option>
+                </select>
+            </div>
+
+            <button class="ui-button" id="play-anim-btn">Play Animation</button>
+        </div>
+    </div>
+
+    <!-- This is where THREE renders -->
+    <div style="height: 100vh; width: 100vw;">
+        <canvas id="vrm-canvas"></canvas>
+    </div>
+
+
+    <script type="importmap">
+        {
+            "imports":
+            {
+                "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+                "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/",
+                "@pixiv/three-vrm": "https://cdn.jsdelivr.net/npm/@pixiv/three-vrm@3/lib/three-vrm.module.js",
+                "@pixiv/three-vrm-animation": "https://cdn.jsdelivr.net/npm/@pixiv/three-vrm-animation@3.4.4/lib/three-vrm-animation.module.js"
+            }
+        }
+	</script>
+    <script type="module" src="loader.js"></script>
+    <script type="module" src="loadVRMAnimation.js"></script>
+    <script type="module" src="/model.js"></script>
+    <script type="module" src="/viewer.js"></script>
+</body>
+
+</html>
