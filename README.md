@@ -11,3 +11,7 @@ I made this in like a week so it could be buggy in some areas
 
 # Start
 To start the project, run `src/index.html` with a live server- dependencies are added through a CDN so this is important. i use the VSCode extension called 'Live Server'
+
+# Dependencies
+1. THREE: allows 3D things to be run in the browser using WebGL
+2. three-vrm: adds tools and utilities to THREE to support VRMs
